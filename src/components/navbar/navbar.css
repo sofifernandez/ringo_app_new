@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box; 
+}
+  
+body {
+    font-family: 'Cabin', sans-serif;
+    margin: 0; 
+}
+  
+a {
+    text-decoration: none;
+    color: white; 
+}
+
+
+
+#menuPrincipal {
+    
+    text-align: center;
+    height: min-content;
+    align-self: center;
+    width: 100%; }
+    #menuPrincipal ul {
+    background-color: #DCABAE;
+      list-style-type: none;
+      font-weight: 800;
+      font-size: 1.7rem;
+      width: 100%; }
+      #menuPrincipal ul li {
+        text-align: center; }
+        #menuPrincipal ul li a:hover {
+          color: white;
+          background-color: black;
+          border-radius: 0.4rem;
+          transition: 300ms linear; }
+        #menuPrincipal ul li #btnCarritoNav:hover{
+          color: #7B94B3;
+          background-color: inherit;
+          transition: 100ms linear; }
+  
+ 
+
+
+
