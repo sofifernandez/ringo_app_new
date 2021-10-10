@@ -21,13 +21,17 @@ a {
     align-self: center;
     width: 100%; }
     #menuPrincipal ul {
-    background-color: #DCABAE;
+    background-color: #E9CCBC;
       list-style-type: none;
       font-weight: 800;
       font-size: 1.7rem;
       width: 100%; }
       #menuPrincipal ul li {
-        text-align: center; }
+        text-align: center;
+        align-self: center; }
+        #menuPrincipal ul li a {
+          color: black;
+        }
         #menuPrincipal ul li a:hover {
           color: white;
           background-color: black;
@@ -39,6 +43,29 @@ a {
           transition: 100ms linear; }
   
  
+#lblCartCount {
+  font-size: 1rem;
+  background: #db868c;
+  color: #1f1e1e;
+  vertical-align: top;
+}
+
+#accionAgregar {
+  background-color: #a1c0a4;
+  border: solid 1px; }
+  #accionAgregar:hover {
+    border-color: black;
+    border: solid 1.5px;
+    box-shadow: 1px 1px #242424; }
+
+#accionRestar {
+  background-color: #f7af93;
+  border: solid 1px;
+  color: black; }
+  #accionRestar:hover {
+    border-color: black;
+    border: solid 1.5px;
+    box-shadow: 1px 1px #242424; }
 
 
 
