@@ -3,8 +3,12 @@ import React, { useState } from "react";
 
 export const CartWidget =() => {
     const [counter, setCounter] = useState(0)
-    const add = () => setCounter(counter + 1)
-    const remove = () => {
+    const add = (e) => {
+        e.preventDefault();
+        setCounter(counter + 1)
+    }
+    const remove = (e) => {
+        e.preventDefault();
         if (counter > 0) setCounter(counter - 1)
     }
     return (
