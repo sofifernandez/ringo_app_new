@@ -1,0 +1,24 @@
+//----- ItemCount
+#accionAgregar {
+    background-color: #a1c0a4;
+    border: solid 1.5px; 
+    border-radius: 0.4rem;
+    &:hover {
+        border-color: black;
+        border: solid 2.5px;
+        box-shadow: 1px 1px #242424; 
+    }
+  }
+    
+  
+  #accionRestar {
+    background-color: #f7af93;
+    border: solid 1.5px;
+    border-radius: 0.4rem;
+    color: black; 
+    &:hover {
+        border-color: black;
+        border: solid 2.5px;
+        box-shadow: 1px 1px #242424; 
+    }
+}
