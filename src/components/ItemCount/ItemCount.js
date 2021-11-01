@@ -18,10 +18,13 @@ export const ItemCount = ({ inicial, stock }) => {
     }
   }
   return (
-    <div className="col-8 col-sm-11 col-lg-8 row justify-content-center">
-      <button className='mx-1 fs-4 col-3 text-center' id='accionAgregar' onClick={remove}>-</button>
-      <p className="badge rounded-pill mx-1 col-4 text-center" id="lblCartCount">{counter}</p>
-      <button className='mx-1 fs-4 col-3 text-center' id='accionRestar' onClick={add} >+</button>
+    <div className="col-10 col-sm-9 col-lg-8 row justify-content-center align-content-center justify-self-center mx-0">
+      <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionAgregar' onClick={remove}>-</button>
+      <p className="badge rounded-pill mx-1 col-2 text-center" id="lblCartCount">{counter}</p>
+      <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionRestar' onClick={add} >+</button>
+      <button className="col-9 col-sm-8 justify-self-center btn-Carrito mt-1" id="btn-{producto.id}">
+          Agregar al carrito
+      </button>
     </div>
   )
 }
