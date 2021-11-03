@@ -1,21 +1,21 @@
 import { ItemListContainer } from "../ItemListContainer/ItemListContainer"
-import galeriaAnillos from "../../images/anillos1.svg"
-import galeriaAros from "../../images/aros1_1.svg"
+import { CategoryImage } from "../CategoryImage/CategoryImage"
+import BWFoto from '../../images/dibujo-2.svg'
 
 export const Home = (() => {
     return (
         <>
-            {/* Galeria anillos*/}
-            <div className="col-12 mt-2 mt-md-5">
-                <img id="cartel" className="img-fluid col-12 gx-0" src={galeriaAnillos} alt="BW" />
-            </div>
+            <main className="container-fluid row justify-content-center mt-0 mx-0 px-0 mb-5">
+                <img class="img-fluid col-12 gx-0 mt-0 mb-3 pt-0" src={BWFoto} alt="B-W"/>
+                {/* Galeria anillos*/}
+            <CategoryImage type={'anillos'}/>
             <ItemListContainer tipoHOME={'anillos'} />
 
             {/*Galleria Aros*/}
-            <div className="col-12 mt-2 mt-md-5">
-                <img id="cartel" className="img-fluid col-12 gx-0" src={galeriaAros} alt="BW" />
-            </div>
+            <CategoryImage type={'aros'}/>
             <ItemListContainer tipoHOME={'aros'} />
+            </main>
+            
         </>    
         
     )

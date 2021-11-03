@@ -11,6 +11,11 @@ header {
   }
 }
 
+#headerHOME {
+  background-color: #e5e5e5;
+  margin-top: inherit;
+}
+
 /*------------Menú de pantallas medianas y grandes-----------------*/
 #menuPrincipal {
   text-align: center;
@@ -18,7 +23,7 @@ header {
   align-self: center;
   width: 100%;
   ul {
-    background-color: #e9ccbc;
+    background-color: #e5e5e5;
     list-style-type: none;
     font-weight: 800;
     font-size: 1.7rem;

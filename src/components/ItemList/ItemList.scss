@@ -14,3 +14,8 @@
     transition: 300ms linear;
   }
 }
+
+.card-img-top:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.25s;
+}

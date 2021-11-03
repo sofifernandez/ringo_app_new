@@ -60,3 +60,20 @@
     transition: 300ms linear;
   }
 }
+
+.btnSeguirComprando {
+  padding: 0.4rem;
+  background-color: rgb(126, 159, 160);
+  border: black 2px solid;
+  border-radius: 0.1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  a {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+//cadetblue

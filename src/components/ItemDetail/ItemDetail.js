@@ -1,14 +1,15 @@
 import "./ItemDetail.scss"
 import { ItemCount } from "../ItemCount/ItemCount";
+import { NavLink } from "react-router-dom";
 
 export const ItemDetail = ({ item }) => {
   return (
-    <div className="container-fluid row col-11 col-sm-9 col-md-8 mt-5 align-content-center">
+    <div className="container-fluid row col-11 col-sm-9 mt-5 align-content-center justify-content-center">
       <div className="col-12 col-lg-7 align-self-center">
         <img className="img-fluid" src={item.imagen} alt="s" />
       </div>
-      <div className="col-12 col-lg-5">
-        <div className="single_product_desc">
+      <div className="col-12 col-lg-5 mb-3 row justify-content-center">
+        <div className="single_product_desc row justify-content-center">
           {/* <!-- Product Meta Data --> */}
           <div className="product-meta-data mb-3">
             <div className="line"></div>
@@ -36,7 +37,7 @@ export const ItemDetail = ({ item }) => {
             
           </div>
           {/* Talles */}
-          <div className="col-7 dropdown mb-2 px-2 row justify-content-start">
+          <div className="col-12 dropdown mb-2 px-2 row justify-content-start">
             <button
               className="btn btn-secondary dropdown-toggle col-5"
               type="button"
@@ -110,6 +111,7 @@ export const ItemDetail = ({ item }) => {
           <ItemCount inicial={0} stock={item.stock} />
         </div>
       </div>
+      <button className="btn col-6 col-lg-3 mt-3 btnSeguirComprando"><NavLink className='fs-6' to={'/'}>Volver</NavLink></button>
     </div>
   );
 };

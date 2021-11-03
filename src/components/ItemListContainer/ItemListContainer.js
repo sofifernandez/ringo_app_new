@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import Products from "../../productos.json";
 import { useParams } from "react-router-dom";
-// import galeriaAnillos from "../../images/anillos1.svg"
-// import galeriaAros from "../../images/aros1_1.svg"
+import { CategoryImage } from "../CategoryImage/CategoryImage"
 
 
 export const ItemListContainer = ({ tipoHOME }) => {
@@ -32,20 +31,13 @@ export const ItemListContainer = ({ tipoHOME }) => {
       .catch((err) => console.log(err));
   }, [tipoHOME, tipoID]);
 
-  // const imagen = (() => {
-  //   if (tipoID === 'anillos') {
-  //     const srcs = { galeriaAnillos }
-  //     return srcs
-  //   } else if (tipoID === 'aros') {
-  //     const srcs = { galeriaAros }
-  //     return srcs
-      
-  //   }
-  // })
+
 
   return (
     <>
       <div className='container-fluid row justify-content-center mt-0 mx-0 px-0 mb-5'>
+        {/* si hay tipoID es porque estoy en la pagina de categorias, sino estoy en home y no necesito el siguiente argumento */}
+        {tipoID ? <CategoryImage type={tipoID} /> : null} 
         <div className="mt-4 mb-md-5 mx-0 container-fluid row justify-content-center justify-self-center col-11 col-md-9">
           {productos.length ? productos.map((producto) => ( <ItemList product={producto} key={producto.id} />))
             : "Loading..."
