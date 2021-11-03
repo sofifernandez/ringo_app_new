@@ -14,13 +14,13 @@ function App() {
         <CartWidget contadorCarrito='?' /> 
       </NavBar>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/ringo_app">
           <Home/>
         </Route>
-        <Route exact path="/tipo/:tipoID">
+        <Route exact path="/ringo_app/tipo/:tipoID">
           <ItemListContainer/>
         </Route>
-        <Route exact path="/producto/:productoID">
+        <Route exact path="/ringo_app/producto/:productoID">
           <ItemDetailContainer/>
         </Route>
         <Route path="/*">
