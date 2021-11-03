@@ -1,80 +1,83 @@
 import './Footer.scss'
 import footer from '../../images/footer.svg'
+import { NavLink } from "react-router-dom";
+
+
 export const Footer = () => {
     return (
-        <footer class="mb-0 px-0 mx-0 row justify-content-center container-fluid">
-        <img class="img-fluid px-0 mx-0" src={footer} alt="logo_pie"/>
+        <footer className="mb-0 px-0 mx-0 row justify-content-center container-fluid">
+        <img className="img-fluid px-0 mx-0" src={footer} alt="logo_pie"/>
         {/* <!--Seguinos/Contacto--> */}
-        <div class="row mt-4 justify-content-center pb-2 pt-2 px-0 index">
+        <div className="row mt-4 justify-content-center pb-2 pt-2 px-0 index">
             {/* <!--Seguinos--> */}
-            <div class="col-12 col-sm-5">
-                <div class="row">
-                    <p class="col-12 fs-3 mb-1">Seguinos</p>
-                    <p class="mt-1 col-12 fs-6 mb-1">Enterate de nuestras ofertas</p>
-                    <form class="col-12" name='formSusc'>
-                        <div class="form-group">
-                            <input placeholder="Ingresá tu email" id="emailSusc" class="mt-2" name='suscripciones'/>
+            <div className="col-12 col-sm-5">
+                <div className="row">
+                    <p className="col-12 fs-3 mb-1">Seguinos</p>
+                    <p className="mt-1 col-12 fs-6 mb-1">Enterate de nuestras ofertas</p>
+                    <form className="col-12" name='formSusc'>
+                        <div className="form-group">
+                            <input placeholder="Ingresá tu email" id="emailSusc" className="mt-2" name='suscripciones'/>
                         </div>
                     </form>
                     <div>
-                        <button class="boton" id='btnSuscription'>SUSCRIBIRSE</button>
+                        <button className="boton" id='btnSuscription'>SUSCRIBIRSE</button>
                     </div>
                 </div>
-                <div class="links">
+                <div className="links">
                     <a href="contacto.html">
-                        <i class="fas fa-envelope mx-1"></i>
+                        <i className="fas fa-envelope mx-1"></i>
                     </a>
                     <a href="https://www.instagram.com/ringo.orfebreria/?hl=es">
-                        <i class="fab fa-instagram mx-1"></i>
+                        <i className="fab fa-instagram mx-1"></i>
                     </a>
                     <a href="tienda.html">
-                        <i class="fas fa-store-alt mx-1"></i>
+                        <i className="fas fa-store-alt mx-1"></i>
                     </a>
                 </div>
             </div>
             {/* <!--Contacto--> */}
-            <div class="contacto col-12 col-sm-6 mt-3 mt-sm-0">
-                <p class="mb-3 fs-3">Contacto</p>
-                <form action="#" method="POST" class="row" name='formMensaje' id='formMensaje'>
-                    <div class="col-6 mb-2">
-                        <div class="form-group">
-                            <input type="text" placeholder="Nombre*" id="nombre" required class=" mb-1" name='userName'/>
+            <div className="contacto col-12 col-sm-6 mt-3 mt-sm-0">
+                <p className="mb-3 fs-3">Contacto</p>
+                <form action="#" method="POST" className="row" name='formMensaje' id='formMensaje'>
+                    <div className="col-6 mb-2">
+                        <div className="form-group">
+                            <input type="text" placeholder="Nombre*" id="nombre" required className=" mb-1" name='userName'/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <input type="email" placeholder="Email*" id="emailContacto" required name='userEmail'/>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="form-group">
+                    <div className="col-12">
+                        <div className="form-group">
                             <textarea placeholder="Mensaje*" rows="10" cols="35" id="mensaje" required
                                 name='userMens'></textarea>
                         </div>
                     </div>
                 </form>
-                <div class="form-group">
-                    <button type="submit" class="boton" id='enviarMens'>ENVIAR</button>
+                <div className="form-group">
+                    <button type="submit" className="boton" id='enviarMens'>ENVIAR</button>
                 </div>
             </div>
         </div>
 
         {/* <!--NavegadorFooter--> */}
-        <nav class="mt-5 mb-5" id="menuPrincipalFooter">
-            <ul class="row px-0 mx-0 justify-content-center">
-                <li class="col-2"><a class='px-1' href="index.html">HOME</a></li>
-                <li class="col-2"><a class='px-1' href="comprar.html">Comprar</a></li>
-                <li class="col-2"><a class='px-1' href="tienda.html">Tienda</a></li>
-                <li class="col-2"><a class='px-1' href="contacto.html">Contacto</a></li>
-                <li class="col-2"><a class='px-1' href="carrito_tabla.html" id='btnCarritoNav'>
-                        <i class="fas fa-shopping-cart"><span class="badge rounded-pill" id="lblCartCount"></span></i>
-                    </a></li>
+        <nav className="mt-5 mb-5" id="menuPrincipalFooter">
+            <ul className="row px-0 mx-0 justify-content-center">
+                <li className="col-2"><NavLink className='px-1' to={'/'}>HOME</NavLink></li>
+                <li className="col-2"><NavLink className='px-1' to={'/'}>Comprar</NavLink></li>
+                <li className="col-2"><NavLink className='px-1' to={'/'}>Tienda</NavLink></li>
+                <li className="col-2"><NavLink className='px-1' to={'/'}>Contacto</NavLink></li>
+                <li className="col-2"><NavLink className='px-1' to={'/'} id='btnCarritoNav'>
+                        <i className="fas fa-shopping-cart"><span className="badge rounded-pill" id="lblCartCount"></span></i>
+                    </NavLink></li>
             </ul>
         </nav>
 
 
 
-        <div id="copyright" class="container-fluid mt-5 mb-2 d-flex align-content-center justify-content-between">
-            <p class="mb-0 text-black-50"> Copyright: RINGO 2021</p>
-            <img class="" src="imagenes/taller/Hcreat.png" alt=""/>
+        <div id="copyright" className="container-fluid mt-5 mb-2 d-flex align-content-center justify-content-between">
+            <p className="mb-0 text-black-50"> Copyright: RINGO 2021</p>
+            <img className="" src="imagenes/taller/Hcreat.png" alt=""/>
         </div>
     </footer>
     )
