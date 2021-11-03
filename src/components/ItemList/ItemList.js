@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export const ItemList = ({ product }) => {
   return (
     <div className="row justify-content-center col-12 col-sm-6 mb-5">
-      <NavLink to={`/ringo_app/producto/${product.id}`}><img className="card-img-top img-fluid" src={product.imagen} alt="S" /></NavLink>
+      <NavLink to={`/producto/${product.id}`}><img className="card-img-top img-fluid" src={product.imagen} alt="S" /></NavLink>
       <div className="card-body col-11">
         <p className="card-text nombreProducto">
           <b>{product.nombre}</b>
