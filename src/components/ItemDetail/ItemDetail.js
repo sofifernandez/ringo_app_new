@@ -1,3 +1,4 @@
+import "./ItemDetail.scss"
 import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({ item }) => {

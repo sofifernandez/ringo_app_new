@@ -1,9 +1,12 @@
+import "./ItemList.scss"
 import { ItemCount } from "../ItemCount/ItemCount";
+import { NavLink } from "react-router-dom";
+
 
 export const ItemList = ({ product }) => {
   return (
     <div className="row justify-content-center col-12 col-sm-6 mb-5">
-      <img className="card-img-top img-fluid" src={product.imagen} alt="S" />
+      <NavLink to={`/producto/${product.id}`}><img className="card-img-top img-fluid" src={product.imagen} alt="S" /></NavLink>
       <div className="card-body col-11">
         <p className="card-text nombreProducto">
           <b>{product.nombre}</b>
@@ -75,11 +78,6 @@ export const ItemList = ({ product }) => {
         </ul>
       </div>
       <ItemCount inicial={0} stock={product.stock} />
-      <button
-        className="col-9 col-sm-8 justify-self-center btn-Carrito mt-1"
-        id="btn-{producto.id}">
-        Agregar al carrito
-      </button>
     </div>
   );
 };

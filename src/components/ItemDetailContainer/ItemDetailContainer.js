@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import {ItemDetail} from "../ItemDetail/ItemDetail";
 import Products from "../../productos.json";
+import { useParams } from "react-router-dom";
 
 
 export const ItemDetailContainer = () => {
+  const { productoID } = useParams();
   const [item, setItem] = useState(null);
 
   const getData = (data) =>
@@ -20,15 +22,18 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     getData(Products)
       .then((res) => {
-        setItem(res[1])
+        productoID ? setItem(res.find((item) => item.id === productoID)) : setItem(Products);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [productoID]);
 
-
+  console.log(item)
+  
   return (
     <>
-      {item? <ItemDetail item={item} key={item.id} />: "Loading..."}      
+      <main className='container-fluid row justify-content-center mt-0 mx-0 px-0 mb-5'>
+        {item? <ItemDetail item={item} key={item.id} />: "Loading..."}
+      </main>
     </>
   );
 };

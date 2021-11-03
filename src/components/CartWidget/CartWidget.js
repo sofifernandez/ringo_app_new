@@ -1,3 +1,4 @@
+import "./CartWidget.scss"
 
 export const CartWidget =({contadorCarrito}) => {
     return (
