@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import {NavBar} from './components/NavBar/NavBar.js'
 import { CartWidget } from "./components/CartWidget/CartWidget"
 import { Home } from "./components/Home/Home"
@@ -9,15 +9,15 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar>
         <CartWidget contadorCarrito='?' /> 
       </NavBar>
       <Switch>
-        <Route exact path="/ringo_app">
+        <Route exact path="/">
           <Home/>
         </Route>
-        <Route exact path="/ringo_app/tipo/:tipoID">
+        <Route exact path="/tipo/:tipoID">
           <ItemListContainer/>
         </Route>
         <Route exact path="/ringo_app/producto/:productoID">
@@ -28,7 +28,7 @@ function App() {
         </Route>
       </Switch>
 
-    </BrowserRouter>
+    </HashRouter>
 
   );
 }

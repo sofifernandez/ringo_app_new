@@ -11,9 +11,9 @@ export const NavBar = ({ children }) => {
                     <li className="nav-item dropdown col-2">
                         <a className="nav-link dropdown-toggle px-1" data-bs-toggle="dropdown" href="/#" role="button" aria-expanded="false">Comprar</a>
                         <ul className="dropdown-menu">
-                            <li><NavLink className="dropdown-item fs-4" to={'/ringo_app/tipo/anillos'}>Anillos</NavLink></li>
+                            <li><NavLink className="dropdown-item fs-4" to={'/tipo/anillos'}>Anillos</NavLink></li>
                             <li><hr className="dropdown-divider"/></li>
-                            <li><NavLink className="dropdown-item fs-4" to={'/ringo_app/tipo/aros'}>Aros</NavLink></li>
+                            <li><NavLink className="dropdown-item fs-4" to={'/tipo/aros'}>Aros</NavLink></li>
                         </ul>
                     </li>
                     <li className="col-2"><a className='px-1' href="tienda.html">Tienda</a></li>
