@@ -1,8 +1,19 @@
 import "./ItemDetail.scss"
-import { ItemCount } from "../ItemCount/ItemCount";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { ItemCount } from "../ItemCount/ItemCount";
+import { ViewCart } from "../ViewCart/ViewCart";
 
 export const ItemDetail = ({ item }) => {
+  const [flag, setFlag] = useState(true);
+  const [contadorCart, setContadorCart] = useState(0)
+
+const onAddHandle = (counter) => {
+  setFlag(false)
+  setContadorCart(counter)
+  };
+
+
   return (
     <div className="container-fluid row col-11 col-sm-9 mt-5 align-content-center justify-content-center">
       <div className="col-12 col-lg-7 align-self-center">
@@ -34,7 +45,7 @@ export const ItemDetail = ({ item }) => {
             <p className="avaibility">
               <i className="fa fa-circle"></i> Hay stock
             </p>
-            
+
           </div>
           {/* Talles */}
           <div className="col-12 dropdown mb-2 px-2 row justify-content-start">
@@ -98,7 +109,7 @@ export const ItemDetail = ({ item }) => {
               </li>
             </ul>
           </div>
-
+          {/* Descripcion */}
           <div className="short_overview my-5">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
@@ -108,8 +119,10 @@ export const ItemDetail = ({ item }) => {
           </div>
 
           {/* <!-- Add to Cart Form --> */}
-          <ItemCount inicial={0} stock={item.stock} />
+          {flag ? <ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} /> : <ViewCart quantity={ contadorCart }/>}
+          
         </div>
+        
       </div>
       <button className="btn col-6 col-lg-3 mt-3 btnSeguirComprando"><NavLink className='fs-6' to={'/'}>Volver</NavLink></button>
     </div>

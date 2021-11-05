@@ -27,7 +27,6 @@ export const ItemDetailContainer = () => {
       .catch((err) => console.log(err));
   }, [productoID]);
 
-  console.log(item)
   
   return (
     <>

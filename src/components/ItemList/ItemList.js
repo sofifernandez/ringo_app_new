@@ -77,7 +77,7 @@ export const ItemList = ({ product }) => {
           </li>
         </ul>
       </div>
-      <ItemCount inicial={0} stock={product.stock} />
+      <ItemCount inicial={0} stock={product.stock} id={product.id} />
     </div>
   );
 };
