@@ -1,9 +1,21 @@
 import "./ItemList.scss"
+import {  useContext } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { NavLink } from "react-router-dom";
+//import { ViewCart } from "../ViewCart/ViewCart";
+import CartContext from "../../contexts/cart/CartContext";
 
 
 export const ItemList = ({ product }) => {
+  const { addToCart, showHideCart } = useContext(CartContext);
+
+const onAddHandle = (counter, e) => {
+  if (counter > 0) {
+    showHideCart(false)
+    addToCart(product, counter)
+  }
+};
+
   return (
     <div className="row justify-content-center col-12 col-sm-6 mb-5">
       <NavLink to={`/producto/${product.id}`}><img className="card-img-top img-fluid" src={product.imagen} alt="S" /></NavLink>
@@ -77,7 +89,7 @@ export const ItemList = ({ product }) => {
           </li>
         </ul>
       </div>
-      <ItemCount inicial={0} stock={product.stock} id={product.id} />
+      <ItemCount inicial={0} stock={product.stock} ID={product.id} onAdd={onAddHandle} texto='Agregar al carrito' /> 
     </div>
   );
 };

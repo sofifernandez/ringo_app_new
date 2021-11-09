@@ -1,6 +1,7 @@
 import './Footer.scss'
 import footer from '../../images/footer.svg'
 import { NavLink } from "react-router-dom";
+import { CartWidget } from "../CartWidget/CartWidget"
 
 
 export const Footer = () => {
@@ -67,9 +68,7 @@ export const Footer = () => {
                 <li className="col-2"><NavLink className='px-1' to={'/'}>Comprar</NavLink></li>
                 <li className="col-2"><NavLink className='px-1' to={'/'}>Tienda</NavLink></li>
                 <li className="col-2"><NavLink className='px-1' to={'/'}>Contacto</NavLink></li>
-                <li className="col-2"><NavLink className='px-1' to={'/'} id='btnCarritoNav'>
-                        <i className="fas fa-shopping-cart"><span className="badge rounded-pill" id="lblCartCount"></span></i>
-                    </NavLink></li>
+                <li className="col-2"><CartWidget/> </li>
             </ul>
         </nav>
 

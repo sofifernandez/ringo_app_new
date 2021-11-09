@@ -1,17 +1,19 @@
 import "./ItemDetail.scss"
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { ViewCart } from "../ViewCart/ViewCart";
+import CartContext from "../../contexts/cart/CartContext";
 
 export const ItemDetail = ({ item }) => {
-  const [flag, setFlag] = useState(true);
+  const { addToCart, showHideCart, showCart } = useContext(CartContext);
   const [contadorCart, setContadorCart] = useState(0)
 
 const onAddHandle = (counter) => {
-  setFlag(false)
+  showHideCart(false)
   setContadorCart(counter)
-  };
+  addToCart(item, counter)
+};
 
 
   return (
@@ -119,8 +121,7 @@ const onAddHandle = (counter) => {
           </div>
 
           {/* <!-- Add to Cart Form --> */}
-          {flag ? <ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} /> : <ViewCart quantity={ contadorCart }/>}
-          
+          {!showCart ? <ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} texto='Agregar al carrito' /> : <ViewCart quantity={contadorCart} />}
         </div>
         
       </div>

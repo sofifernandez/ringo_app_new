@@ -57,6 +57,11 @@ textarea {
           transition: 300ms linear;
         }
       }
+      #btnCarritoNav:hover {
+        color: #7b94b3;
+        background-color: inherit;
+        transition: 100ms linear;
+      }
     }
   }
 }

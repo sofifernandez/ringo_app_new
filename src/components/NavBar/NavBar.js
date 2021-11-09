@@ -21,7 +21,7 @@ export const NavBar = () => {
                     </li>
                     <li className="col-2"><a className='px-1' href="tienda.html">Tienda</a></li>
                     <li className="col-2"><a className='px-1' href="contacto.html">Contacto</a></li>
-                    <li className="col-2"><CartWidget contadorCarrito='?' /> </li>
+                    <li className="col-2"><CartWidget/> </li>
                 </ul>
             </nav>
             <div id="logoHeader" className="mt-md-5 pt-md-5 col-4">
@@ -31,7 +31,7 @@ export const NavBar = () => {
             {/* <Naegador pantallas de menos de 768px */}
             <div className="row d-md-none pb-2" id='navegadorMobile'>
                 <div className="col-7 fs-4 lala">
-                    <CartWidget contadorCarrito='?' /> 
+                    <CartWidget /> 
                 </div>
                 <div className="dropdown d-flex d-md-none col-5">
                     <button className="btn btn-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"

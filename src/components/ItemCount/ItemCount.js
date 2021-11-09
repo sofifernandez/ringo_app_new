@@ -1,8 +1,9 @@
 import "./ItemCount.scss"
 import React, { useState } from "react";
 
-export const ItemCount = ({ inicial, stock, ID, onAdd }) => {
+export const ItemCount = ({ inicial, stock, ID, onAdd, texto }) => {
   const [counter, setCounter] = useState(inicial);
+
   
   const increase = (e) => {
     e.preventDefault();
@@ -22,9 +23,7 @@ export const ItemCount = ({ inicial, stock, ID, onAdd }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (counter !== 0) {
-      onAdd(counter);
-    }
+    onAdd(counter)
   };
 
 
@@ -35,8 +34,9 @@ export const ItemCount = ({ inicial, stock, ID, onAdd }) => {
       <p className="badge rounded-pill mx-1 col-2 text-center" id="lblCartCount">{counter}</p>
       <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionRestar' onClick={increase} >+</button>
       <button className="col-9 col-sm-8 justify-self-center btn-Carrito mt-1" id={ID} onClick={(e) => {handleClick(e)}}>
-          Agregar al carrito
+          {texto}
       </button>
     </div>
   )
 }
+
