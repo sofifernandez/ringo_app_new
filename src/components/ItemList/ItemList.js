@@ -9,12 +9,16 @@ import CartContext from "../../contexts/cart/CartContext";
 export const ItemList = ({ product }) => {
   const { addToCart, showHideCart } = useContext(CartContext);
 
-const onAddHandle = (counter, e) => {
+  const onAddHandle = (counter) => {
   if (counter > 0) {
     showHideCart(false)
     addToCart(product, counter)
   }
-};
+  };
+  
+  const onIncreaseHandle = (counter) => {
+    console.log('itemlist dice ' + counter)
+  }
 
   return (
     <div className="row justify-content-center col-12 col-sm-6 mb-5">
@@ -89,7 +93,7 @@ const onAddHandle = (counter, e) => {
           </li>
         </ul>
       </div>
-      <ItemCount inicial={0} stock={product.stock} ID={product.id} onAdd={onAddHandle} texto='Agregar al carrito' /> 
+      <ItemCount inicial={0} stock={product.stock} ID={product.id} onAdd={onAddHandle} onIncrease={ onIncreaseHandle} texto='Agregar al carrito' />
     </div>
   );
 };

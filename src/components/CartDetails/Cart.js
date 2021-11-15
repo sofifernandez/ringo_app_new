@@ -1,20 +1,32 @@
 import './Cart.scss'
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import CartContext from "../../contexts/cart/CartContext";
 import { CartItem } from "./CartItem";
 import { NavLink } from "react-router-dom";
 
 export const Cart = () => {
   const { cartItems, initalState } = useContext(CartContext);
-  const [cartTotal, setCartTotal]= useState(cartItems.reduce((amount, item) => item.total + amount, 0))
+  const [cartTotal, setCartTotal] = useState(cartItems.reduce((amount, item) => item.total + amount, 0))
+
+  
+  useEffect(() => {
+    setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0))
+  }, [cartItems]);
+  
+
 
   return (
     <main className='row container-fluid justify-content-center my-5'>
       {cartItems.length !== 0 ? (
         <div className='row justify-content-center'>
 
-          {cartItems.map((item) => (<CartItem key={item.id} item={item} onRefresh={()=>setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0)) }/>))}
+          {cartItems.map((item) => (<CartItem key={item.id} item={item}
+            onRefresh={() => setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0))} />))}
           <hr />
+
+
+
+
           {/* Total */}
           <div className="row justify-content-center col-10 col-sm-6 col-md-4 text-center my-5">
             <div className="cart-summary pt-3">

@@ -3,6 +3,9 @@ import { ItemList } from "../ItemList/ItemList";
 import Products from "../../productos.json";
 import { useParams } from "react-router-dom";
 import { CategoryImage } from "../CategoryImage/CategoryImage"
+//import { collection, getDocs } from "firebase/firestore";
+//import { getFirestore } from "../../firebase/index";
+
 
 
 export const ItemListContainer = ({ tipoHOME }) => {
@@ -31,7 +34,21 @@ export const ItemListContainer = ({ tipoHOME }) => {
       .catch((err) => console.log(err));
   }, [tipoHOME, tipoID]);
 
+  // useEffect(() => {
+  //   const db = getFirestore();
+  //   getDocs(collection(db, "items"))
+  //     .then((snapshot) => {
+  //       console.log(snapshot.docs)
 
+  //       tipoHOME ? setProductos(snapshot.docs.filter((product) => product.tipo === tipoHOME)) : setProductos(snapshot.docs) || //esto para el HOME
+  //         tipoID ? setProductos(snapshot.docs.filter((product) => product.tipo === tipoID)) : setProductos(snapshot.docs) //esto para las categorias
+  //         ;
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [tipoHOME, tipoID]);
+
+
+  
 
   return (
     <>

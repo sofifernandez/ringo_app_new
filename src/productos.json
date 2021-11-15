@@ -6,7 +6,8 @@
         "tipo": "anillos",
         "precio": 1700,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/anillos/quarter.png",
-        "stock" : 2,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -16,7 +17,8 @@
         "tipo": "anillos",
         "precio": 2100,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/anillos/patron_a.png",
-        "stock" : 3,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -26,7 +28,8 @@
         "tipo": "anillos",
         "precio": 1700,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/anillos/mold2.png",
-        "stock" : 4,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -36,7 +39,8 @@
         "tipo": "anillos",
         "precio": 1700,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/anillos/dropEggLine.png",
-        "stock" : 3,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -46,7 +50,8 @@
         "tipo": "aros",
         "precio": 1700,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/aros/line.png",
-        "stock" : 2,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -57,6 +62,7 @@
         "precio": 1900,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/aros/quarter.png",
         "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -66,7 +72,8 @@
         "tipo": "aros",
         "precio": 2100,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/aros/quarter_long.png",
-        "stock" : 3,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     },
@@ -76,7 +83,8 @@
         "tipo": "aros",
         "precio": 2000,
         "imagen": "https://raw.githubusercontent.com/Sofia-Microb/JavaScript-Proyecto/ac1f9db41714c13de4f3230e3dd9f2ce20089fbd/imagenes/aros/solid.png",
-        "stock" : 4,
+        "stock" : 5,
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?",
         "quantity":0,
         "total": null
     }
