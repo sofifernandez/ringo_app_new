@@ -16,7 +16,7 @@ export const Cart = () => {
 
 
   return (
-    <main className='row container-fluid justify-content-center my-5'>
+    <main className='row container-fluid justify-content-center my-5 mx-0'>
       {cartItems.length !== 0 ? (
         <div className='row justify-content-center'>
 
@@ -50,7 +50,10 @@ export const Cart = () => {
             </div>
           </div>
         </div>
-      ) : (<div className='row justify-content-center my-5'>
+      )
+        
+        
+        : (<div className='row justify-content-center my-5'>
         <ol className="list-group col-10 col-md-6">
           <li className="list-group-item row justify-content-between align-content-center">
             <div className="ms-2 me-auto">

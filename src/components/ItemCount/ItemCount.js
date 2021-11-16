@@ -40,7 +40,7 @@ export const ItemCount = ({ inicial, stock, ID, onAdd, texto, onCart=false }) =>
       <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionAgregar' onClick={decrease}>-</button>
       <p className="badge rounded-pill mx-1 col-2 text-center" id="lblCartCount">{counter}</p>
       <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionRestar' onClick={increase} >+</button>
-      {!onCart && <button className={ ` ${color === false ? 'btn-Carrito' : 'btn-CarritoDos'} 'col-9 col-sm-8 justify-self-center mt-1' ` } id={ID} onClick={handleClick}>
+      {!onCart && <button className={ ` ${color === false ? 'btn-Carrito' : 'btn-CarritoDos'} col-9 col-sm-8 justify-self-center mt-2 ` } id={ID} onClick={handleClick}>
                     {texto}
           </button>}
     </div>

@@ -25,3 +25,12 @@ a {
 #cartel {
   border: 4px solid black;
 }
+
+/* Breakpoints de bootstrap
+  X-Small	None	<576px --> celu
+  Small	sm	≥576px --> iPad
+  Medium	md	≥768px --> compus
+  Large	lg	≥992px
+  Extra large	xl	≥1200px
+  Extra extra large	xxl	≥1400px
+*/

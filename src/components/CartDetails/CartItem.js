@@ -24,8 +24,8 @@ export const CartItem = ({ item, onRefresh }) => {
 
 
     return (
-        <div className="container-fluid row col-12 col-md-7 mt-5 align-content-center justify-content-center">
-            <div className="col-12 col-sm-9 col-md-6 align-self-center">
+        <div className="container-fluid row col-12 col-lg-10 mt-5 align-content-center justify-content-center">
+            <div className="col-12 col-md-4 justify-self-start">
                 <img className="img-fluid" src={item.imagen} alt="s" />
             </div>
             <div className="col-12 col-md-6 mb-3 row justify-content-center">

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import Products from "../../productos.json";
 import { useParams } from "react-router-dom";
 import { CategoryImage } from "../CategoryImage/CategoryImage"
-//import { collection, getDocs } from "firebase/firestore";
-//import { getFirestore } from "../../firebase/index";
+import { collection, getDocs, query} from "firebase/firestore";
+import { getFirestore } from "../../firebase/index";
 
 
 
@@ -13,42 +12,26 @@ export const ItemListContainer = ({ tipoHOME }) => {
 
   const [productos, setProductos] = useState([]);
 
-  const getData = (data) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject("No se encontro nada");
-        }
-      }, 1000);
-    });
-
-  useEffect(() => {
-    getData(Products)
-      .then((res) => {
-        tipoHOME ? setProductos(res.filter((product) => product.tipo === tipoHOME)) : setProductos(Products) || //esto para el HOME
-          tipoID ? setProductos(res.filter((product) => product.tipo === tipoID)) : setProductos(Products) //esto para las categorias
-          ;
-      })
-      .catch((err) => console.log(err));
-  }, [tipoHOME, tipoID]);
-
-  // useEffect(() => {
-  //   const db = getFirestore();
-  //   getDocs(collection(db, "items"))
-  //     .then((snapshot) => {
-  //       console.log(snapshot.docs)
-
-  //       tipoHOME ? setProductos(snapshot.docs.filter((product) => product.tipo === tipoHOME)) : setProductos(snapshot.docs) || //esto para el HOME
-  //         tipoID ? setProductos(snapshot.docs.filter((product) => product.tipo === tipoID)) : setProductos(snapshot.docs) //esto para las categorias
-  //         ;
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [tipoHOME, tipoID]);
-
-
+	useEffect(() => {
+		//Traer database
+		const db = getFirestore();
+		//Crear la función getItems
+		async function getItems(db) {
+			const itemsCol = tipoID
+				? query(
+						collection(db, 'items'),
+				  )
+				: collection(db, 'items');
+			const snapshot = await getDocs(itemsCol);
+      const itemsList = snapshot.docs.map((doc) => doc.data())
+       tipoHOME ? setProductos(itemsList.filter((product) => product.tipo === tipoHOME)) : setProductos(itemsList) ||
+        tipoID ? setProductos(itemsList.filter((product) => product.tipo === tipoID)) : setProductos(itemsList)
+		}
+		getItems(db);
+  }, [tipoID, tipoHOME]);
   
+
+ 
 
   return (
     <>

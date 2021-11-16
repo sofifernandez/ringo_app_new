@@ -2,7 +2,6 @@ import "./ItemList.scss"
 import {  useContext } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { NavLink } from "react-router-dom";
-//import { ViewCart } from "../ViewCart/ViewCart";
 import CartContext from "../../contexts/cart/CartContext";
 
 
