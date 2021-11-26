@@ -1,7 +1,8 @@
 import "./ItemCount.scss"
 import React, { useEffect, useState } from "react";
 
-export const ItemCount = ({ inicial, stock, ID, onAdd, texto, onCart=false }) => {
+
+export const ItemCount = ({ inicial, stock, ID, onAdd, onCart=false }) => {
   const [counter, setCounter] = useState(inicial);
   const [color, setColor] =useState(false)
 
@@ -18,11 +19,14 @@ export const ItemCount = ({ inicial, stock, ID, onAdd, texto, onCart=false }) =>
   
   const decrease = (e) => {
     e.preventDefault();
-    if (counter > 0) {
+    if (counter > 0 && !onCart) {
+      setCounter(counter - 1)
+    } else if (counter > 1 && onCart) {
       setCounter(counter - 1)
     }
   }
 
+  
   const handleClick = (e) => {
     e.preventDefault();
     onAdd(counter)
@@ -41,7 +45,7 @@ export const ItemCount = ({ inicial, stock, ID, onAdd, texto, onCart=false }) =>
       <p className="badge rounded-pill mx-1 col-2 text-center" id="lblCartCount">{counter}</p>
       <button className='mx-1 my-0 fs-4 col-3 text-center' id='accionRestar' onClick={increase} >+</button>
       {!onCart && <button className={ ` ${color === false ? 'btn-Carrito' : 'btn-CarritoDos'} col-9 col-sm-8 justify-self-center mt-2 ` } id={ID} onClick={handleClick}>
-                    {texto}
+                    Agregar al carrito
           </button>}
     </div>
   )

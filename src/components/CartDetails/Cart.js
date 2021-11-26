@@ -4,9 +4,11 @@ import { useContext, useState, useEffect } from "react";
 import CartContext from "../../contexts/cart/CartContext";
 import { CartItem } from "./CartItem";
 import { NavLink } from "react-router-dom";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export const Cart = () => {
-  const { cartItems, initalState, deleteCart } = useContext(CartContext);
+  const { cartItems, deleteCart } = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(cartItems.reduce((amount, item) => item.total + amount, 0))
 
 
@@ -14,8 +16,21 @@ export const Cart = () => {
     setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0))
   }, [cartItems]);
 
-  //const deleteCart=()=> initalState
+  const MySwal = withReactContent(Swal)
+  const handleDeleteCart = () => {
+    MySwal.fire({ 
+                html: `¿Estás seguro/a que deseas vaciar el carrito de compras?`,
+                showDenyButton: true,
+                confirmButtonText: 'Sí',
+                denyButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) { 
+                    deleteCart()      
+                } 
+            })
+  }
 
+ 
   return (
     <main className='row container-fluid justify-content-center my-5 mx-0'>
       {cartItems.length !== 0 ? (
@@ -24,9 +39,6 @@ export const Cart = () => {
           {cartItems.map((item) => (<CartItem key={item.id} item={item}
             onRefresh={() => setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0))} />))}
           <hr />
-
-
-
 
           {/* Total */}
           <div className="row justify-content-center col-12 col-sm-8 col-md-4 text-center my-5">
@@ -43,7 +55,7 @@ export const Cart = () => {
             </div>
 
             <div className="justify-content-between row mb-5">
-              <button className='mt-5 col-6 col-sm-4 btnVaciar' onClick={() => initalState}><a href='/'> Vaciar carrito</a></button>
+              <button className='mt-5 col-6 col-sm-4 btnVaciar' onClick={handleDeleteCart}>Vaciar carrito</button>
               <button className='mt-5 col-6 col-sm-5 btnSeguirComprando'><NavLink className='fs-6' to={'/'}>Seguir
                 comprando</NavLink></button>
 

@@ -2,24 +2,36 @@
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useContext } from "react";
 import CartContext from "../../contexts/cart/CartContext";
-
 import React, { useState } from "react";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 export const CartItem = ({ item, onRefresh }) => {
     const { removeItem } = useContext(CartContext);
     const [itemTotal, setItemTotal] = useState(item.total);
 
+    const MySwal = withReactContent(Swal)
+    const handleRemove = () => {
+        MySwal.fire({
+            html: `¿Estás seguro/a que deseas eliminar ${item.nombre} del carrito de compras?`,
+            showDenyButton: true,
+            confirmButtonText: 'Sí',
+            denyButtonText: 'No',
+        }).then((result) => {
+            if (result.isConfirmed) { //Confirmar eliminar
+                removeItem(item.id)
+            }
+        })
+    }
 
     const onAddHandle = (counter, itemTotal) => {
         if (counter > 0) {
-            item.quantity=counter
+            item.quantity = counter
             item.total = item.precio * counter
             setItemTotal(item.total)
             onRefresh(itemTotal)
-        } else if (counter === 0) {
-            removeItem(item.id)
-        }
+        } 
     };
 
 
@@ -112,10 +124,10 @@ export const CartItem = ({ item, onRefresh }) => {
 
                 {/* <!-- Add to Cart Form --> */}
                 <p className='col-12 col-md-3 fs-5'>Cantidad:</p>
-                <div className='col-12 col-md-9 my-1'><ItemCount inicial={item.quantity} stock={item.stock} id={item.id} onAdd={onAddHandle} onCart={ true } /></div>
+                <div className='col-12 col-md-9 my-1'><ItemCount inicial={item.quantity} stock={item.stock} id={item.id} onAdd={onAddHandle} onCart={true} /></div>
                 <p className='fs-4 my-2'>Total= ${itemTotal} </p>
                 <div>
-                    <button className="btn btn-danger btn-sm botonAccion mb-0 fs-6 col-4 justify-self-start" id='accionEliminar' onClick={() => removeItem(item.id)}>
+                    <button className="btn btn-danger btn-sm botonAccion mb-0 fs-6 col-4 justify-self-start" id='accionEliminar' onClick={handleRemove}>
                         <i className="far fa-trash-alt"></i>
                         Eliminar
                     </button>

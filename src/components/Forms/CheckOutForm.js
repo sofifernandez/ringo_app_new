@@ -48,7 +48,8 @@ export const CheckOutForm = ({ finalPurchase, totalCompra, HandleDeleteCart }) =
             // si están todos los datos del comprador bien
             if (buyer.userEmail.match(mailFormat) && buyer.userName.match(nameFormat) && buyer.userPhone.match(phoneFormat)) {
                 const orderInfo = collection(db, "orders");
-                addDoc(orderInfo, newOrder).then(({ id }) => alert('Gracias por tu compra! El código es: ' + id));
+                addDoc(orderInfo, newOrder).then(({ id }) =>
+                    alert('Gracias por tu compra! El código es: ' + id));
                 // actualizar el stock en la base de datos (incomprobable pero prometo que funciona!)
                 finalPurchase.forEach((item) => {
                     const docRef = doc(db, "items", item.id);

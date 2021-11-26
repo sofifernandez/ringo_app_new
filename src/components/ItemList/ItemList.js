@@ -3,21 +3,32 @@ import {  useContext } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { NavLink } from "react-router-dom";
 import CartContext from "../../contexts/cart/CartContext";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 export const ItemList = ({ product }) => {
   const { addToCart, showHideCart } = useContext(CartContext);
 
+  const MySwal = withReactContent(Swal)
   const onAddHandle = (counter) => {
   if (counter > 0) {
     showHideCart(false)
     addToCart(product, counter)
+    MySwal.fire({
+            icon: 'success',
+            text: `Agregaste ${product.nombre} al carrito`,
+            imageUrl: `${product.imagen}`,
+            imageWidth: 100,
+            imageHeight: 100,
+            timer: 1300,
+            showConfirmButton: false,
+
+        })
   }
   };
   
-  const onIncreaseHandle = (counter) => {
-    console.log('itemlist dice ' + counter)
-  }
+  
 
   return (
     <div className="row justify-content-center col-12 col-sm-6 mb-5">
@@ -92,7 +103,7 @@ export const ItemList = ({ product }) => {
           </li>
         </ul>
       </div>
-      <ItemCount inicial={0} stock={product.stock} ID={product.id} onAdd={onAddHandle} onIncrease={ onIncreaseHandle} texto='Agregar al carrito' />
+      <ItemCount inicial={0} stock={product.stock} ID={product.id} onAdd={onAddHandle} />
     </div>
   );
 };

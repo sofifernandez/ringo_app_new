@@ -2,15 +2,27 @@ import "./ItemDetail.scss"
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
-//import { ViewCart } from "../ViewCart/ViewCart";
 import CartContext from "../../contexts/cart/CartContext";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export const ItemDetail = ({ item }) => {
   const { addToCart, showHideCart } = useContext(CartContext);
 
+const MySwal = withReactContent(Swal)
 const onAddHandle = (counter) => {
   showHideCart(false)
   addToCart(item, counter)
+  MySwal.fire({
+            icon: 'success',
+            text: `Agregaste ${item.nombre} al carrito`,
+            imageUrl: `${item.imagen}`,
+            imageWidth: 100,
+            imageHeight: 100,
+            timer: 1300,
+            showConfirmButton: false,
+
+        })
 };
 
 
@@ -117,7 +129,7 @@ const onAddHandle = (counter) => {
           </div>
 
           {/* <!-- Add to Cart Form --> */}
-          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} texto='Agregar al carrito' /> }
+          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} /> }
         </div>
         
       </div>
