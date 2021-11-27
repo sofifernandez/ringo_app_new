@@ -1,9 +1,9 @@
 # This is Ringo :ring:
 
-An ecommerce project I developed for my reactJS course in CoderHouse. You can check out the deployment [here](https://ringo-app.netlify.app/). This is actually my friend's side business, which you can follow [here](https://www.instagram.com/ringo.orfebreria/?hl=es).
+An ecommerce project I developed for my reactJS course in CoderHouse. You can check out the deployment [here](https://ringo-app.netlify.app/). This is actually my friend's side business, which you can follow [here](https://www.instagram.com/ringo.orfebreria/?hl=es). Keep in mind that this is artisanal work and each ring or earing is constructed upon an order is placed, so it does not actually function with product stock. Nevertheless, stocks were added as a learning tool.
 
 A little backstory...
-I am a Microbiologist from Uruguay, but I have always loved computers and IT. It all took off when I had to analyze microbiota data for my PhD, there was no going back after that.
+I am a Microbiologist :microscope: from Uruguay, but I have always loved computers and IT. It all took off when I had to analyze microbiota data for my PhD, there was no going back after that.
 
 ## Let's do this :muscle:
 

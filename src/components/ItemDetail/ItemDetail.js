@@ -1,29 +1,22 @@
 import "./ItemDetail.scss"
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext} from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
+import { StockHandler } from "../StockHandler/StockHandler";
 import CartContext from "../../contexts/cart/CartContext";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import { Sizes } from "../Sizes/Sizes";
+
 
 export const ItemDetail = ({ item }) => {
-  const { addToCart, showHideCart } = useContext(CartContext);
+  const { addToCart, showCart } = useContext(CartContext);
 
-const MySwal = withReactContent(Swal)
-const onAddHandle = (counter) => {
-  showHideCart(false)
-  addToCart(item, counter)
-  MySwal.fire({
-            icon: 'success',
-            text: `Agregaste ${item.nombre} al carrito`,
-            imageUrl: `${item.imagen}`,
-            imageWidth: 100,
-            imageHeight: 100,
-            timer: 1300,
-            showConfirmButton: false,
 
-        })
-};
+  const onAddHandle = (counter) => {
+    if (counter > 0) {
+      showCart(true)
+      addToCart(item, counter)
+    }
+  };
 
 
   return (
@@ -54,72 +47,11 @@ const onAddHandle = (counter) => {
               </div>
             </div>
             {/* <!-- Avaiable --> */}
-            <p className="avaibility">
-              <i className="fa fa-circle"></i> Hay stock
-            </p>
-
+            <StockHandler item={item} onHandleStock={onAddHandle}></StockHandler>
           </div>
           {/* Talles */}
           <div className="col-12 dropdown mb-2 px-2 row justify-content-start">
-            <button
-              className="btn btn-secondary dropdown-toggle col-5"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Talle
-            </button>
-            <ul
-              className="dropdown-menu menuTalles"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>4</b> <span style={{ fontSize: `80%` }}>(14,9 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>5</b> <span style={{ fontSize: `80%` }}>(15,6 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>6</b> <span style={{ fontSize: `80%` }}>(16,5 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>7</b> <span style={{ fontSize: `80%` }}>(17,2 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>8</b> <span style={{ fontSize: `80%` }}>(18,0 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>9</b> <span style={{ fontSize: `80%` }}>(18,9 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>10</b> <span style={{ fontSize: `80%` }}>(19,7 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>11</b> <span style={{ fontSize: `80%` }}>(20,6 mm)</span>
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/#">
-                  <b>12</b> <span style={{ fontSize: `80%` }}>(21,5 mm)</span>
-                </a>
-              </li>
-            </ul>
+            <Sizes></Sizes>
           </div>
           {/* Descripcion */}
           <div className="short_overview my-5">
@@ -129,9 +61,9 @@ const onAddHandle = (counter) => {
           </div>
 
           {/* <!-- Add to Cart Form --> */}
-          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} /> }
+          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} />}
         </div>
-        
+
       </div>
       <button className="btn col-6 col-lg-3 mt-3 btnSeguirComprando"><NavLink className='fs-6' to={'/'}>Volver</NavLink></button>
     </div>

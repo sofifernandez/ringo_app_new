@@ -38,7 +38,7 @@ export const ItemListContainer = ({ tipoHOME }) => {
       <div className='container-fluid row justify-content-center mt-0 mx-0 px-0 mb-5'>
         {/* si hay tipoID es porque estoy en la pagina de categorias, sino estoy en home y no necesito el siguiente argumento */}
         {tipoID ? <CategoryImage type={tipoID} /> : null} 
-        <div className="mt-4 mb-md-5 mx-0 container-fluid row justify-content-center justify-self-center col-11 col-md-9">
+        <div className="mt-4 mb-md-5 mx-0 container-fluid row justify-content-center justify-self-center col-11 col-md-8">
           {productos.length ? productos.map((producto) => ( <ItemList product={producto} key={producto.id} />))
             : "Loading..."
           }

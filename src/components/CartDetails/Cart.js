@@ -1,5 +1,5 @@
 import './Cart.scss'
-import { CheckOutForm } from '../Forms/CheckOutForm';
+import { CheckOutForm } from '../CheckOutForm/CheckOutForm';
 import { useContext, useState, useEffect } from "react";
 import CartContext from "../../contexts/cart/CartContext";
 import { CartItem } from "./CartItem";
@@ -51,7 +51,7 @@ export const Cart = () => {
                 <li className="mb-4"><span className='fs-5'><b>Total: </b></span>
                   <span className='fs-5'>${cartTotal}</span></li>
               </ul>
-              <CheckOutForm finalPurchase={cartItems} totalCompra={cartTotal} HandleDeleteCart={deleteCart} />
+              <CheckOutForm finalPurchase={cartItems} totalCompra={cartTotal} HandleEmptyCart={deleteCart} />
             </div>
 
             <div className="justify-content-between row mb-5">

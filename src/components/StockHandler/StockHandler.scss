@@ -1,0 +1,17 @@
+.available {
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #6b6b6b;
+  line-height: 1;
+  i {
+    color: #6dd886;
+    font-size: 12px;
+  }
+}
+
+.notavailable {
+  @extend .available;
+  i {
+    color: #d86d6d;
+  }
+}

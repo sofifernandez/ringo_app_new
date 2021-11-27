@@ -6,10 +6,11 @@ import {
     updateDoc,
 } from "firebase/firestore";
 import { getFirestore } from "../../firebase/index";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
-
-export const CheckOutForm = ({ finalPurchase, totalCompra, HandleDeleteCart }) => {
+export const CheckOutForm = ({ finalPurchase, totalCompra, HandleEmptyCart }) => {
 
     const [buyer, setBuyer] = useState({
         userName: '',
@@ -33,6 +34,14 @@ export const CheckOutForm = ({ finalPurchase, totalCompra, HandleDeleteCart }) =
         setBuyer({ ...buyer, [e.target.name]: e.target.value })
     }
 
+    const MySwal = withReactContent(Swal)
+    const alertHandler = (value) => {
+        MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `Por favor, ingresa un ${value} válido`,
+        })
+    }
 
     const onHandleSubmit = (e) => {
         const db = getFirestore();
@@ -49,31 +58,35 @@ export const CheckOutForm = ({ finalPurchase, totalCompra, HandleDeleteCart }) =
             if (buyer.userEmail.match(mailFormat) && buyer.userName.match(nameFormat) && buyer.userPhone.match(phoneFormat)) {
                 const orderInfo = collection(db, "orders");
                 addDoc(orderInfo, newOrder).then(({ id }) =>
-                    alert('Gracias por tu compra! El código es: ' + id));
+                    MySwal.fire({
+                        icon: 'success',
+                        title: 'Gracias por tu compra!',
+                        text: `Código de compra: ${id}`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    }))
                 // actualizar el stock en la base de datos (incomprobable pero prometo que funciona!)
                 finalPurchase.forEach((item) => {
                     const docRef = doc(db, "items", item.id);
-                    updateDoc(docRef, { stock: item.stock-item.quantity});
+                    updateDoc(docRef, { stock: item.stock - item.quantity });
                 });
-                HandleDeleteCart()
-                                
-
+                HandleEmptyCart()
             }
-            
-
             else if (!buyer.userName.match(nameFormat)) {
-                alert('Por favor ingresa un nombre válido')
+                alertHandler("nombre")
             }
-            
             else if (!buyer.userEmail.match(mailFormat)) {
-                alert('Por favor ingresa un mail válido')
+                alertHandler("e-mail")
             }
-            
             else if (!buyer.userPhone.match(phoneFormat)) {
-                alert('Por favor escribe un número de teléfono válido')
+                alertHandler("número de teléfono")
             }
-            else if (buyer.userComments.length>0 && !buyer.userComments.match(messFormat)) {
-                alert('Por favor escribe hasta 250 caracteres')
+            else if (buyer.userComments.length > 0 && !buyer.userComments.match(messFormat)) {
+                MySwal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor escribe hasta 250 caracteres',
+                })
             }
 
         } catch (err) {
@@ -81,18 +94,26 @@ export const CheckOutForm = ({ finalPurchase, totalCompra, HandleDeleteCart }) =
         };
     }
 
+    const inputs = [
+        { name: "userName", placeholder: "Nombre*" },
+        { name: "userEmail", placeholder: "E-mail*" },
+        { name: "userPhone", placeholder: "Teléfono*" }
+    ];
+
     return (
         <form onSubmit={onHandleSubmit} className="row justify-content-center" name='formMensaje' id='formMensaje'>
             <div className="col-11 mb-2 row justify-content-center">
-                <div className="form-group row">
-                    <input type="text" placeholder="Nombre*" id="nombre" className="mb-1" name='userName' onChange={handleBuyerChange} />
-                </div>
-                <div className="form-group row">
-                    <input type="email" placeholder="E-mail*" id="emailContacto" className="mb-1" name='userEmail' onChange={handleBuyerChange} />
-                </div>
-                <div className="form-group row">
-                    <input type="text" placeholder="Teléfono*" id="telefonoContacto" className="mb-1" name='userPhone' onChange={handleBuyerChange} />
-                </div>
+                {inputs.map((input) => (
+                    <div key={input.name} className="form-group row">
+                        <input
+                            className="mb-1"
+                            name={input.name}
+                            placeholder={input.placeholder}
+                            type="text"
+                            onChange={handleBuyerChange}
+                        />
+                    </div>
+                ))}
             </div>
             <div className="col-11">
                 <div className="form-group row">

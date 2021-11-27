@@ -1,11 +1,11 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, DELETE_CART } from "../Types";
+import { SHOW_CART, ADD_TO_CART, REMOVE_ITEM, DELETE_CART } from "../Types";
 
 const CartReducer = (state, action) => {
   switch (action.type) {
-    case SHOW_HIDE_CART: {
+    case SHOW_CART: {
       return {
         ...state,
-        showCart: true,
+        isCart: true,
       };
     }
     case ADD_TO_CART: {
