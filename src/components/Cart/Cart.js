@@ -2,7 +2,7 @@ import './Cart.scss'
 import { CheckOutForm } from '../CheckOutForm/CheckOutForm';
 import { useContext, useState, useEffect } from "react";
 import CartContext from "../../contexts/cart/CartContext";
-import { CartItem } from "./CartItem";
+import { CartItem } from "../CartItem/CartItem";
 import { NavLink } from "react-router-dom";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -10,27 +10,26 @@ import withReactContent from 'sweetalert2-react-content'
 export const Cart = () => {
   const { cartItems, deleteCart } = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(cartItems.reduce((amount, item) => item.total + amount, 0))
-
+  const MySwal = withReactContent(Swal)
 
   useEffect(() => {
     setCartTotal(cartItems.reduce((amount, item) => item.total + amount, 0))
   }, [cartItems]);
 
-  const MySwal = withReactContent(Swal)
   const handleDeleteCart = () => {
-    MySwal.fire({ 
-                html: `¿Estás seguro/a que deseas vaciar el carrito de compras?`,
-                showDenyButton: true,
-                confirmButtonText: 'Sí',
-                denyButtonText: 'No',
-            }).then((result) => {
-                if (result.isConfirmed) { 
-                    deleteCart()      
-                } 
-            })
+    MySwal.fire({
+      html: `¿Estás seguro/a que deseas vaciar el carrito de compras?`,
+      showDenyButton: true,
+      confirmButtonText: 'Sí',
+      denyButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteCart()
+      }
+    })
   }
 
- 
+
   return (
     <main className='row container-fluid justify-content-center my-5 mx-0'>
       {cartItems.length !== 0 ? (

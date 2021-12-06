@@ -1,0 +1,20 @@
+.btn-Size {
+  padding: 0.3rem;
+  background-color: #e9ccbc;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  &:hover {
+    border-color: white;
+    color: white;
+    background-color: black;
+    transition: 300ms linear;
+  }
+}
+
+// //queda azul el botón cuando se agrega al carrito
+// .btn-CarritoDos {
+//   @extend .btn-Carrito;
+//   background-color: #7b94b3;
+// }

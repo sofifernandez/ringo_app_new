@@ -38,16 +38,11 @@ textarea {
 }
 
 #menuPrincipalFooter {
-  text-align: center;
-  height: min-content;
-  align-self: center;
-  width: 100%;
   ul {
     background-color: #e9ccbc;
     list-style-type: none;
     font-weight: 800;
     font-size: 1.7rem;
-    width: 100%;
     li {
       font-size: 1.5rem;
       a {
@@ -55,6 +50,8 @@ textarea {
         &:hover {
           background-color: #7b94b3;
           transition: 300ms linear;
+          padding-right: 0.5rem;
+          padding-left: 0.5rem;
         }
       }
       #btnCarritoNav:hover {
@@ -82,24 +79,4 @@ textarea {
   max-height: 200px;
   width: auto;
   height: auto;
-}
-
-/*----CELULARES------*/
-@media only screen and (max-width: 576px) {
-  /*FOOTER*/
-  #menuPrincipalFooter {
-    text-align: center;
-    width: 50%;
-    ul {
-      width: 100%;
-      li {
-        display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
-        justify-content: center;
-        align-content: center;
-        width: min-content;
-      }
-    }
-  }
 }

@@ -1,14 +1,14 @@
 import "./ItemCount.scss"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from 'sweetalert2-react-content';
+
 
 
 export const ItemCount = ({ inicial, stock, ID, onAdd, onCart=false }) => {
   const [counter, setCounter] = useState(inicial);
   const [color, setColor] = useState(false)
-  
-  
+
 
   const MySwal = withReactContent(Swal);  
   const increase = (e) => {

@@ -49,7 +49,12 @@ header {
   }
 }
 
-/*---------Menú de pantallas chicas--------NO FUNCIONA-----*/
+.seccion-activa-md {
+  background-color: #e9ccbc;
+  border-radius: 0.4rem;
+}
+
+/*---------Menú de pantallas chicas------------*/
 a.dropdown-item.seccion-activa {
   color: #dcabae;
 }
@@ -67,19 +72,15 @@ a.dropdown-item.seccion-activa {
   color: white;
 }
 
-#btnCarritoNav {
-  color: #1f1e1e;
-  &:hover {
-    color: #7b94b3;
-    background-color: inherit;
-    transition: 100ms linear;
-  }
-}
-
 #lblCartCountDrop {
   font-size: 1rem;
   background: #dcabae;
   color: #1f1e1e;
   vertical-align: top;
   display: none;
+}
+
+#dropdownMenuButton2 {
+  background-color: #e9ccbc;
+  border: none;
 }

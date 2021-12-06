@@ -1,0 +1,27 @@
+.btnSeguirComprando {
+  padding: 0.4rem;
+  background-color: cadetblue;
+  border: black 2px solid;
+  border-radius: 0.1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  a {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.btnVaciar {
+  padding: 0.4rem;
+  background-color: #b6765d;
+  font-weight: 700;
+  font-size: 1rem;
+  border: black 2px solid;
+  border-radius: 0.1rem;
+  color: black;
+  &:hover {
+    color: white;
+  }
+}

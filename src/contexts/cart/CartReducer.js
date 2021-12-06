@@ -1,6 +1,7 @@
-import { SHOW_CART, ADD_TO_CART, REMOVE_ITEM, DELETE_CART } from "../Types";
+import { SHOW_CART, ADD_TO_CART, REMOVE_ITEM, DELETE_CART, TALLES_RENDER} from "../Types";
 
 const CartReducer = (state, action) => {
+  
   switch (action.type) {
     case SHOW_CART: {
       return {
@@ -9,7 +10,6 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
-
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
@@ -26,7 +26,13 @@ const CartReducer = (state, action) => {
         ...state,
         cartItems: [...state.cartItems]
       }
-    }  
+    }
+    case TALLES_RENDER: {
+      return {
+        ...state,
+        tallesHandler: [...state.tallesHandler],
+      }
+    }
 
     default:
       return state;

@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import './Sizes.scss'
+import React, { useState, useContext } from "react";
+import CartContext from "../../contexts/cart/CartContext";
 
-export const Sizes = (params) => {
 
-    const [size, setSize]= useState(null)
 
-    const talles = [
+
+export const Sizes = ({ parentItem, refer, ID }) => {
+
+    const [size, setSize] = useState()
+    const { addRemoveSize, cartItems } = useContext(CartContext);
+
+    const ListaTalles = [
         { talle: "4", medida: "  (14,9 mm)" },
         { talle: "5", medida: "  (15,6 mm)" },
         { talle: "6", medida: "  (16,5 mm)" },
@@ -16,33 +22,61 @@ export const Sizes = (params) => {
         { talle: "12", medida: "  (21,5 mm)" }
     ];
 
+
+    if (!size) {
+        const objIndex = cartItems.findIndex((obj => obj.id === parentItem))
+        const existe = cartItems[objIndex].talles.some(obj => obj.id === ID)
+        if (existe) {
+            const objIndexDos = cartItems[objIndex].talles.findIndex((obj => obj.id === ID))
+            setSize(cartItems[objIndex].talles[objIndexDos].size)
+        }
+    }
+
     const handleSelect = (e) => {
         e.preventDefault()
         setSize(e.target.id)
-        params.sizeToCart(e.target.id)
+        const newSize = { id: parentItem + '_' + refer, parentItem: parentItem, refer: refer, size: e.target.id }
+        addRemoveSize(newSize)
+        enableNextButton()
     }
-    
 
+    const enableNextButton = () => {
+        const objIndex = cartItems.findIndex((obj => obj.id === parentItem))
+        const existe = cartItems[objIndex].talles.some(obj => obj.enableNext === ID)
+        if (existe) {
+            const objIndexDos = cartItems[objIndex].talles.findIndex((obj => obj.enableNext === ID))
+            return cartItems[objIndex].talles[objIndexDos].enableNext
+        }
+    }
+
+    const next = enableNextButton()
 
 
     return (
-        <>
-            <button
-                className="btn btn-secondary dropdown-toggle col-5"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-            >
-                {size ? `Talle: ${size}`: `Talle`}
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                {talles.map((talle) => (
-                    <button  onClick={handleSelect} className="dropdown-item col-6" type="button" id={talle.talle} key={talle.talle}>
+        <div className='my-3'>
+            <div className='dropdown mx-1'>
+                <button
+                    className='btn dropdown-toggle btn-Size'
+                    // ${colorChange === false ? 'btn-Carrito' : 'btn-CarritoDos'}
+                    disabled={refer === 0 || ID === next ? false : true}
+                    type="button"
+                    id={`dropdownMenuButton1`}
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    {size ? `${size}` : `Talle`}
+                    <i className="fas fa-ring mx-1"></i>
+                </button>
+
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    {ListaTalles.map((talle) => (
+                        <button onClick={handleSelect} className="dropdown-item" type="button" id={talle.talle} key={talle.talle}>
                             {talle.talle} {talle.medida}
-                    </button>
-                ))}
+                        </button>
+                    ))}
+                </div>
             </div>
-        </>
+            <div className='text-center'> {!size ? null : <i className="fas fa-check"></i>} </div>
+        </div>
     )
 }

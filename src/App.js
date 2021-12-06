@@ -6,7 +6,8 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer"
 import { Footer } from './components/Footer/Footer'
 import { CartState } from './contexts/cart/CartState'
-import { Cart } from './components/CartDetails/Cart'
+import { Cart } from './components/Cart/Cart'
+import {Page404} from './components/Page404/Page404'
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
             <Cart />
           </Route>
           <Route path="/*">
-            <h1>Página no encontrada</h1>
+            <Page404/>
           </Route>
         </Switch>
         <Footer />

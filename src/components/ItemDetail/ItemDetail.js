@@ -4,8 +4,6 @@ import { useContext} from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { StockHandler } from "../StockHandler/StockHandler";
 import CartContext from "../../contexts/cart/CartContext";
-import { Sizes } from "../Sizes/Sizes";
-
 
 export const ItemDetail = ({ item }) => {
   const { addToCart, showCart } = useContext(CartContext);
@@ -49,10 +47,6 @@ export const ItemDetail = ({ item }) => {
             {/* <!-- Avaiable --> */}
             <StockHandler item={item} onHandleStock={onAddHandle}></StockHandler>
           </div>
-          {/* Talles */}
-          <div className="col-12 dropdown mb-2 px-2 row justify-content-start">
-            <Sizes></Sizes>
-          </div>
           {/* Descripcion */}
           <div className="short_overview my-5">
             <p>
@@ -61,7 +55,7 @@ export const ItemDetail = ({ item }) => {
           </div>
 
           {/* <!-- Add to Cart Form --> */}
-          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle} />}
+          {<ItemCount inicial={0} stock={item.stock} id={item.id} onAdd={onAddHandle}/>}
         </div>
 
       </div>

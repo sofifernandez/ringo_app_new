@@ -6,7 +6,6 @@ import CartContext from "../../contexts/cart/CartContext";
 
 export const StockHandler = ({ item, onHandleStock }) => {
     const { cartItems } = useContext(CartContext);
-
     const [prodStock, setprodStock] = useState(item.stock)
 
     const existe = cartItems.some(el => el.id === item.id);
