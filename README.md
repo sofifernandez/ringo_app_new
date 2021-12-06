@@ -31,3 +31,5 @@ _"Oh no... We've been cloned!"_ :bust_in_silhouette::bust_in_silhouette: (guess 
 ## Author :nail_care:
 
 - **Sofía Fernández Ciganda** -- [Linkedin](https://www.linkedin.com/in/sof%C3%ADa-fern%C3%A1ndez-ciganda-76986042/)
+
+![grab-landing-page](https://raw.githubusercontent.com/Sofia-Microb/ringo_app_new/main/src/images/page_gif.gif)
