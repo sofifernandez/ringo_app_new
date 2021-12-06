@@ -12,8 +12,11 @@ _You can get a local copy of this project and use it for developing purposes or 
 ### Also, here are some libraries :books:
 
 Sass@1.43.4 --> [Sass](https://sass-lang.com/) - CSS extension language
+
 Sweetalert@11.2.0 --> [Sweetalert](https://sweetalert.js.org/guides/) - Cool alerts and notifications for users
-Firebase@9.4.1 --> [Firebase/Firestore](https://firebase.google.com/docs/firestore) - Storage of producto and purchase orders
+
+Firebase@9.4.1 --> [Firebase/Firestore](https://firebase.google.com/docs/firestore) - Storage of product and purchase orders
+
 React-router-dom@5.3.0 [React Router](https://v5.reactrouter.com/) - Dynamic routing
 
 ### Clone it from GitHub :hammer_and_wrench:
