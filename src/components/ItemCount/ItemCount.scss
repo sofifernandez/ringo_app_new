@@ -1,5 +1,6 @@
 //----- ItemCount
 #accionAgregar {
+  color: black;
   background-color: #a1c0a4;
   border: solid 1.5px;
   border-radius: 0.4rem;
@@ -11,10 +12,10 @@
 }
 
 #accionRestar {
+  color: black;
   background-color: #f7af93;
   border: solid 1.5px;
   border-radius: 0.4rem;
-  color: black;
   &:hover {
     border-color: black;
     border: solid 2.5px;
@@ -23,6 +24,7 @@
 }
 
 .btn-Carrito {
+  color: black;
   padding: 0.3rem;
   border-color: black;
   background-color: #dcabae;
